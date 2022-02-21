@@ -9,9 +9,9 @@ You can install this mod on your server to give players an initial set, or on th
 ## Configuration
 The configuration is located in `<game or server directory>/config/starterpack.json`.
 
-You can read more about the configuration here.
+You can read more about the configuration [here](https://github.com/cayennemc/starterpack/wiki/Mod-configuration-and-features/).
 
-Here you can find various examples.
+Here you can find various [examples](https://github.com/cayennemc/starterpack/wiki/Ready-made-examples).
 
 ## License
 License here: [LICENSE](LICENSE)
