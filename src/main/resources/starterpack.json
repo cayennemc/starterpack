@@ -1,0 +1,28 @@
+{
+  "Items": [
+    {
+      "Item": {
+        "id": "minecraft:wooden_sword",
+        "Count": 1,
+        "tag": {
+          "Damage": 12
+        }
+      }
+    },
+    {
+      "Item": {
+        "id": "minecraft:written_book",
+        "Count": 1,
+        "tag": {
+          "author": "Admin",
+          "title": "Help",
+          "pages": [
+            {
+              "text": "Hello!"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

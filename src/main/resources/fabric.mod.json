@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "starterpack",
+  "version": "${version}",
+  "name": "StarterPack",
+  "description": "Mod for starter kits!",
+  "authors": [
+    "rantuhin"
+  ],
+  "contact": {
+    "issues": "https://github.com/cayennemc/starterpack/issues",
+    "sources": "https://github.com/cayennemc/starterpack"
+  },
+  "license": "MIT",
+  "icon": "assets/starterpack/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "one.cayennemc.starterpack.StarterPack"
+    ]
+  },
+  "mixins": [
+    "starterpack.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.13.2",
+    "fabric": "*",
+    "minecraft": "1.18.x"
+  }
+}
