@@ -1,4 +1,7 @@
 # StarterPack
+![modrinth_downloads](https://modrinth-utils.vercel.app/api/badge/downloads?id=3NTC99xh&logo=true)
+![modrinth_versions](https://modrinth-utils.vercel.app/api/badge/versions?id=3NTC99xh&logo=true)
+![java_16](https://img.shields.io/badge/java-16+-orange?logo=java)
 StarterPack will allow you to make a starter kit that is given to each player when they first log on to the server.
 
 ## Features
