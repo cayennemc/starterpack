@@ -1,11 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "one.cayennmc.starterpack.mixin",
+  "package": "one.cayennemc.starterpack.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "one.cayennemc.starterpack.mixin.MixinPlayerManager",
-    "one.cayennemc.starterpack.mixin.MixinServerPlayerEntity"
+    "MixinPlayerManager",
+    "MixinServerPlayerEntity"
   ],
   "injectors": {
     "defaultRequire": 1
