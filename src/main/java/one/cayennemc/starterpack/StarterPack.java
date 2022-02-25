@@ -2,6 +2,7 @@ package one.cayennemc.starterpack;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import one.cayennemc.starterpack.event.PlayerJoinCallback;
 
@@ -10,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class StarterPack implements ModInitializer {
-    private List<ItemStack> stacks;
+    private List<StarterItem> items;
 
     @Override
     public void onInitialize() {
@@ -28,15 +29,21 @@ public class StarterPack implements ModInitializer {
             e.printStackTrace();
         }
 
-        stacks = cfg.getItemStacks();
+        items = cfg.getStarterItems();
 
         PlayerJoinCallback.EVENT.register(player -> {
             IServerPlayerEntity iPlayer = (IServerPlayerEntity) player;
             if (!iPlayer.isPlayedBefore()) {
+                PlayerInventory inventory = player.getInventory();
                 if (!player.getWorld().isClient()) {
-                    for (ItemStack itemStack : stacks) {
-                        ItemStack stack = itemStack.copy();
-                        player.getInventory().insertStack(stack);
+                    for (StarterItem item: items) {
+                        ItemStack stack = item.getStack().copy();
+                        int slot = item.getSlot();
+                        if (slot == -1) {
+                            inventory.insertStack(stack);
+                        } else {
+                            inventory.setStack(slot, stack);
+                        }
                     }
                 }
                 iPlayer.setPlayedBefore(true);

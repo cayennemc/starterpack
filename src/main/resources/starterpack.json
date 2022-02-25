@@ -16,11 +16,20 @@
         "tag": {
           "author": "Admin",
           "title": "Help",
-          "pages": [
-            {
-              "text": "Hello!"
-            }
-          ]
+          "pages": ['[{"text": "Hello!"}]']
+        }
+      }
+    },
+    {
+      "Slot": 38,
+      "Item": {
+        "id": "minecraft:leather_chestplate",
+        "Count": 1,
+        "tag": {
+          "display": {
+            "color": 14800849
+          },
+          "Unbreakable": 1
         }
       }
     }

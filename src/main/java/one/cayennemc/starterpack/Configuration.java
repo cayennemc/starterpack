@@ -19,11 +19,11 @@ import java.util.Objects;
 
 public final class Configuration {
     private final String configPath;
-    private final List<ItemStack> itemStacks;
+    private final List<StarterItem> starterItems;
 
     public Configuration(String path) {
         this.configPath = path;
-        this.itemStacks = new ArrayList<>();
+        this.starterItems = new ArrayList<>();
     }
 
     public boolean isExists() {
@@ -42,16 +42,19 @@ public final class Configuration {
         JsonArray array = configObject.getAsJsonArray("Items");
         NbtDeserializer deserializer = new NbtDeserializer();
         for (JsonElement element: array) {
-            JsonObject object = element.getAsJsonObject().getAsJsonObject("Item");
-            System.out.println(object.toString());
-            NbtCompound compound = (NbtCompound) deserializer.deserialize(object);
-            System.out.println(compound.toString());
-            ItemStack item = ItemStack.fromNbt(compound);
-            itemStacks.add(item);
+            JsonObject object = element.getAsJsonObject();
+            int slot = -1;
+            if (object.has("Slot"))
+                slot = object.getAsJsonPrimitive("Slot").getAsInt();
+            JsonObject item = object.getAsJsonObject("Item");
+            NbtCompound compound = (NbtCompound) deserializer.deserialize(item);
+            ItemStack stack = ItemStack.fromNbt(compound);
+            StarterItem starterItem = new StarterItem(slot, stack);
+            starterItems.add(starterItem);
         }
     }
 
-    public List<ItemStack> getItemStacks() {
-        return new ArrayList<>(itemStacks);
+    public List<StarterItem> getStarterItems() {
+        return new ArrayList<>(starterItems);
     }
 }
